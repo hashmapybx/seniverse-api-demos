@@ -31,6 +31,8 @@
   - [PHP demo, contributed by open source community](./php/demo.php)
 
 - [Java](./java)
+  
+    - [HttpGet](./java/DemoJava.java) 调用HttpGet请求测试demo
 
 - [Swift4](./swift)
 
