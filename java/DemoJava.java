@@ -71,6 +71,22 @@ class DemoJava {
                     "1"
             );
             System.out.println("URL:" + url);
+            CloseableHttpClient client = HttpClients.createDefault();
+
+            HttpGet get = new HttpGet(url);
+            CloseableHttpResponse response = client.execute(get);
+
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                System.out.println("执行成功");
+                HttpEntity entity = response.getEntity();
+                String string = EntityUtils.toString(entity, "utf-8");
+                JSONObject jsonObject = JSONObject.parseObject(string);
+                JSONArray result = jsonObject.getJSONArray("results");
+                System.out.println(result.getJSONObject(0).get("daily"));
+
+            }
+
+
         } catch (Exception e) {
             System.out.println("Exception:" + e);
         }
